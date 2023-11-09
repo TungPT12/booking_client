@@ -16,13 +16,13 @@ const Home = () => {
 	const { token } = useSelector(state => state.authn)
 	const types = [
 		'6544b205445f1e0af183c117',
-		'6544c0d87eebdd077e6a7266',
+		'654cfb6aaccd7b0c5f6cf430',
 		'6544c1517eebdd077e6a7269',
 		'6544c1767eebdd077e6a726b',
 		'6544c1917eebdd077e6a726d'
 	]
 
-	const areas = ['653714deedb62697ff304487', '654a3aa47cae0f6a21494517', '654a3bbb739f0ff8f0bbfd69'];
+	const areas = ['653714deedb62697ff304487', '654a3aa47cae0f6a21494517', '654cfa29dc2bf6294f14df03'];
 
 	const [topThreeRatingHotel, setTopThreeRatingHotel] = useState([])
 
