@@ -1,0 +1,26 @@
+[
+	{
+		"name": "Aparthotel Stare Miasto",
+		"city": "Madrid",
+		"price": 120,
+		"rate": 8.9,
+		"type": "Excellent",
+		"image_url": "http://localhost:3000//images/hotel_1.webp"
+	},
+	{
+		"name": "Comfort Suites Airport",
+		"city": "Austin",
+		"price": 140,
+		"rate": 9.3,
+		"type": "Exceptional",
+		"image_url": "http://localhost:3000//images/hotel_2.jpg"
+	},
+	{
+		"name": "Four Seasons Hotel",
+		"city": "Lisbon",
+		"price": 99,
+		"rate": 8.8,
+		"type": "Excellent",
+		"image_url": "http://localhost:3000//images/hotel_3.jpg"
+	}
+]

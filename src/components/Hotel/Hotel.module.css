@@ -1,0 +1,26 @@
+.grid__image {
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.address {
+    font-size: 14px;
+}
+
+.price__info__title {
+    font-size: 1.1rem;
+}
+
+.price__info {
+    /* display: flex; */
+    justify-content: center;
+    background-color: #ebf3ff;
+}
+
+.price__info__price {
+    font-size: 1.5rem;
+}
+
+.description {
+    font-size: 14px;
+}

@@ -1,0 +1,32 @@
+.transaction table tr th {
+    background-color: #32a4c1;
+    padding: 1rem 1rem;
+    color: #fff;
+}
+
+.transaction {
+    padding: 10px 88px;
+}
+
+.transaction table tr th,
+.transaction table tr td {
+    border: 1px solid #cecaca;
+    padding: 1rem 1rem;
+    line-height: 100%;
+    word-break: break-word;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.transaction table tr td p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+
+.event-row td {
+    background-color: #e9e9e9;
+}

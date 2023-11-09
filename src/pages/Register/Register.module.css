@@ -1,0 +1,44 @@
+.navbar-container {
+    background-color: #003580;
+    color: #fff;
+    padding: 10px 88px;
+}
+
+.nav-bar_header {
+    margin-bottom: 18px;
+}
+
+.nav-bar__header__brand {
+    font-size: larger;
+}
+
+.register-wrap {
+    height: 100vh;
+}
+
+.button-navbar {
+    color: #3d63b2;
+    height: fit-content;
+    padding: 2px 13px;
+}
+
+.register-action-btn {
+    text-decoration: none;
+    background-color: #0071c2;
+    font-weight: 500;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.register-form {
+    max-width: 21%;
+    width: 19%;
+}
+
+.register-form input {
+    outline: none;
+    border: 1px solid #0006;
+    border-radius: 4px;
+}

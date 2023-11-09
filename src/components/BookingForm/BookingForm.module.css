@@ -1,0 +1,33 @@
+h3 {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.rooms {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+}
+
+.reserve-btn-form {
+    left: 15%;
+    padding: 1rem;
+    position: relative;
+}
+
+select {
+    padding: 1rem 4rem 1rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #c8c1c1;
+    border-radius: 4px;
+    font-weight: 600;
+    outline: none;
+}
+
+
+.wrapper-room:nth-child(odd) {
+    margin-right: 1rem;
+}
+
+.wrapper-room:nth-child(even) {
+    margin-left: 1rem;
+}

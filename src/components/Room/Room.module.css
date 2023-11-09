@@ -1,0 +1,32 @@
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.room-title {
+    font-size: 1.2rem;
+}
+
+.quantity-people {
+    font-size: 0.8rem;
+}
+
+.room-description {
+    font-size: 0.95rem;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.room-number-quantity {
+    font-weight: 800;
+}
+
+.room-price {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.room-numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
