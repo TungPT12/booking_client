@@ -5,16 +5,15 @@ import {
 } from "react-router-dom";
 import './index.css'
 import { useDispatch } from "react-redux";
-import Home from "./pages/client/Home/Home";
-import Detail from "./pages/client/Detail/Detail";
-import Search from "./pages/client/Search/Search";
-import ErrorComponent1 from "./pages/ErrorPage";
+import Home from "./pages/Home/Home";
+import Detail from "./pages/Detail/Detail";
+import Search from "./pages/Search/Search";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Transaction from "./pages/Transaction/Transaction";
 import Navbar from "./components/Navbar/Navbar";
 import { useEffect } from "react";
-import { checkAccessToken } from "./apis/auth/authn";
+import { checkAccessToken } from "./apis/authn";
 import { authnAction } from "./stores/slice/authn";
 const clientRouters = [
   {
@@ -66,7 +65,7 @@ function App() {
   const dispatch = useDispatch();
   const renderRouter = (listRouter) => {
     return listRouter.map((router) => {
-      return <Route key={router.path} errorElement={<ErrorComponent1 />} path={router.path} element={router.element} />
+      return <Route key={router.path} path={router.path} element={router.element} />
     })
   }
   useEffect(() => {

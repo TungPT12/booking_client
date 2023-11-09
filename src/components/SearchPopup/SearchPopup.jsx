@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from './SearchPopup.module.css';
+// import styles from './SearchPopup.module.css';
 import { Card } from 'react-bootstrap';
 import CardFilter from './CardFilter/CardFilter';
 

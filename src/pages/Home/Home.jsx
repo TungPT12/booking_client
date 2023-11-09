@@ -1,11 +1,11 @@
-import Header from '../../../components/client/Header/Header';
-import CardGuest from '../../../components/client/CardGuest/CardGuest';
-import SignupForm from '../../../components/client/SignupForm/SubscribeForm';
-import Footer from '../../../components/client/Footer/Footer';
+import Header from '../../components/Header/Header';
+import CardGuest from '../../components/CardGuest/CardGuest';
+import SignupForm from '../../components/SignupForm/SubscribeForm';
+import Footer from '../../components/Footer/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
 
-import Card from '../../../components/client/Card/Card';
+import Card from '../../components/Card/Card';
 import { getNumberHotelInAreaApi } from '../../apis/area';
 import { getNumberHotelByTypeApi } from '../../apis/type';
 import { useEffect, useState } from 'react';

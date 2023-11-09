@@ -1,10 +1,10 @@
-import SignupForm from '../../../components/client/SignupForm/SubscribeForm';
-import Footer from '../../../components/client/Footer/Footer';
-import SearchPopup from '../../../components/client/SearchPopup/SearchPopup';
-import SearchList from '../../../components/client/SearchList/SearchList';
+import SignupForm from '../../components/SignupForm/SubscribeForm';
+import Footer from '../../components/Footer/Footer';
+import SearchPopup from '../../components/SearchPopup/SearchPopup';
+import SearchList from '../../components/SearchList/SearchList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Search.css'
-import search from '../../../data/search.json';
+import search from '../../data/search.json';
 const Search = (props) => {
   return (
     <div>

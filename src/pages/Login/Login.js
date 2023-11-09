@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authnAction } from '../../stores/slice/authn';
 import { Link, useNavigate } from 'react-router-dom';
-import { login } from '../../apis/auth/authn';
 
 import styles from './Login.module.css';
 import { Col, Row } from 'react-bootstrap';
+import { login } from '../../apis/authn';
 
 function Login() {
     const { isAuthn } = useSelector(state => state.authn)

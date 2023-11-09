@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getTransactionsApi } from '../../apis/transaction';
 import { format } from 'date-fns'
-import TagTransaction from '../../../components/TagTransaction/TagTransaction';
+import TagTransaction from '../../components/TagTransaction/TagTransaction';
 
 function Transaction() {
     const navigate = useNavigate();

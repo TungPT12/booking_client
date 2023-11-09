@@ -1,10 +1,10 @@
-import SignupForm from '../../../components/client/SignupForm/SubscribeForm';
-import Footer from '../../../components/client/Footer/Footer';
+import SignupForm from '../../components/SignupForm/SubscribeForm';
+import Footer from '../../components/Footer/Footer';
 import './Detail.css';
 import { useParams } from 'react-router-dom';
-import BookingForm from '../../../components/client/BookingForm/BookingForm';
+import BookingForm from '../../components/BookingForm/BookingForm';
 import { useEffect, useState } from 'react';
-import Hotel from '../../../components/client/Hotel/Hotel';
+import Hotel from '../../components/Hotel/Hotel';
 import { useSelector } from 'react-redux';
 import { getHotelByIdApi } from '../../apis/hotel';
 

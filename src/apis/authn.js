@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axiosCustomerInstance from '../configs/axios/customer';
 
 const login = async (username, password) => {
     try {
-        const response = await axios.post('http://localhost:5000/api/login', {
+        const response = await axiosCustomerInstance.post('/login', {
             username: username,
             password: password
         });
@@ -14,7 +14,7 @@ const login = async (username, password) => {
 
 const checkAccessToken = async (token) => {
     try {
-        const response = await axios.post('http://localhost:5000/api/access-token', {
+        const response = await axiosCustomerInstance.post('/access-token', {
             token: token,
         });
         return response
