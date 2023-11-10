@@ -159,6 +159,7 @@ function BookingForm({ email, fullName, phoneNumber, username, hotelId }) {
                     <h3>Date</h3>
                     <div>
                         <DateRangePicker
+                            className={`position-relative`}
                             date={date}
                             setDate={setDate}
                         />
