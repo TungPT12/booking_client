@@ -43,7 +43,7 @@ function SearchPopup({ date, setDate, setPeople, people, area, setArea, minPrice
             <div className={` mb-4 ${styles['search-popup__option']}`}>
                 <label className={`mb-2`}>Options</label>
                 <div className={`mx-3 ${styles['input-option']}`}>
-                    <div className={`d-flex `}>
+                    {/* <div className={`d-flex `}>
                         <span>Min price per night ($)</span>
                         <input type='number' step={1} min={0} value={minPrice} onChange={(e) => {
                             setMinPrice(e.target.value)
@@ -54,7 +54,7 @@ function SearchPopup({ date, setDate, setPeople, people, area, setArea, minPrice
                         <input type='number' step={1} min={0} value={maxPrice} onChange={(e) => {
                             setMaxPrice(e.target.value)
                         }} className={`ps-1`} />
-                    </div>
+                    </div> */}
                     <div className={`d-flex d-`}>
                         <span className='text-capitalize'>People</span>
                         <input type='number' className='ps-1' step={1} min={0} value={people} onChange={(e) => {

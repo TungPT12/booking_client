@@ -7,7 +7,6 @@ import './Search.css'
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { searchHotels } from '../../apis/hotel';
-import { format } from 'date-fns';
 const Search = () => {
   const { state } = useLocation();
   const [date, setDate] = useState({
@@ -32,7 +31,7 @@ const Search = () => {
       people: people
     }).then((response) => {
       setHotels(response.data)
-      console.log(response.data);
+      // console.log(response.data);
     }).catch((error) => {
       console.log(error.message);
     })
