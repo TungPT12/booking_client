@@ -21,7 +21,6 @@ const getHotelByIdApi = async (token, id) => {
 }
 
 const searchHotels = async ({ area, startDate, endDate, minPrice, maxPrice, people }) => {
-    console.log(startDate)
     try {
         const response = await axiosInstance.get(`/hotels/search?area=${area}&startDate=${startDate}&endDate=${endDate}&minPrice=${minPrice}&maxPrice=${maxPrice}&people=${people}`);
         return response;

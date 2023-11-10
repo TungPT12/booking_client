@@ -24,8 +24,8 @@ const Search = () => {
 
   const onHandleSearch = () => {
     searchHotels({
-      startDate: format(date.startDate, 'dd/MM/yyyy'),
-      endDate: format(date.endDate, 'dd/MM/yyyy'),
+      startDate: date.startDate,
+      endDate: date.endDate,
       area: area,
       minPrice: minPrice,
       maxPrice: maxPrice,
