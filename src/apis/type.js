@@ -1,9 +1,8 @@
 import axiosInstance from "../configs/axios/axios";
-import setHeaders from "../utils/setHeaders";
 
-const getNumberHotelByTypeApi = async (token, id) => {
+const getNumberHotelByTypeApi = async () => {
     try {
-        const response = await axiosInstance.get(`type/count-hotel/${id}`, setHeaders(token));
+        const response = await axiosInstance.get(`type/count-hotel`,);
         return response;
     } catch (error) {
         return error.response;

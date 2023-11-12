@@ -32,7 +32,7 @@
 }
 
 #card .city-type .card__content {
-    bottom: 0;
+    bottom: 16px;
     position: absolute;
 }
 
@@ -42,10 +42,17 @@
 
 #card .city-type .card__title,
 #card .city-type .card__sub-text {
-    font-size: 28px;
     font-weight: 700;
     color: #fff;
     margin-left: 1.1rem;
+}
+
+#card .city-type .card__title {
+    font-size: 28px;
+}
+
+#card .city-type .card__sub-text {
+    font-size: 20px;
 }
 
 #card .other-type img {

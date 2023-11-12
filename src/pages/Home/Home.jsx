@@ -6,77 +6,37 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
 
 import Card from '../../components/Card/Card';
-import { getNumberHotelInAreaApi } from '../../apis/area';
+import { getNumberHotelInRandomAreaApi } from '../../apis/area';
 import { getNumberHotelByTypeApi } from '../../apis/type';
 import { useEffect, useState } from 'react';
 import { getTopThreeRatingHotel } from '../../apis/hotel';
-import { useSelector } from 'react-redux';
 
 const Home = () => {
-	const { token } = useSelector(state => state.authn)
-	const types = [
-		'6544b205445f1e0af183c117',
-		'654cfb6aaccd7b0c5f6cf430',
-		'6544c1517eebdd077e6a7269',
-		'6544c1767eebdd077e6a726b',
-		'6544c1917eebdd077e6a726d'
-	]
+	const [countHotelInThreeArea, setCountHotelInThreeArea] = useState([])
+	const [numberHotelsByType, setNumberHotelsByType] = useState([])
 
-	const areas = ['653714deedb62697ff304487', '654a3aa47cae0f6a21494517', '654cfa29dc2bf6294f14df03'];
-
-	const [topThreeRatingHotel, setTopThreeRatingHotel] = useState([])
-
-	window.scrollTo(0, 0)
-
-
-	const loadNumberHotelInArea = async (areaId) => {
-		try {
-			const response = await getNumberHotelInAreaApi(token, areaId);
+	const getCountHotelInThreeRandomArea = () => {
+		getNumberHotelInRandomAreaApi().then((response) => {
 			if (response.status !== 200) {
 				throw new Error(response.data.message);
 			}
-			const area = response.data;
-			const data = {
-				name: area.name,
-				subText: `${area.numberHotels} properties`,
-				image: area.backgroundImage
-			}
-			return data
-		} catch (error) {
-			console.log(error.message)
-		}
+			setCountHotelInThreeArea(response.data)
+		}).catch(() => {
+			alert()
+		})
 	}
-	const loadNumberHotelByType = async (typeId) => {
-		try {
-			const response = await getNumberHotelByTypeApi(token, typeId);
+	const getNumberHotelByType = () => {
+		getNumberHotelByTypeApi().then((response) => {
 			if (response.status !== 200) {
 				throw new Error(response.data.message);
 			}
-			const area = response.data;
-			const data = {
-				name: area.name,
-				subText: `${area.numberHotels} ${area.name.trim()} `,
-				image: area.image
-			}
-			return data
-		} catch (error) {
-			console.log(error.message)
-		}
-
-	}
-
-	const renderCard = (listData, callback, typeClass) => {
-		return listData.map((id) => {
-			return <Card
-				key={id}
-				callback={callback}
-				id={id}
-				typeClass={typeClass}
-			/>
+			setNumberHotelsByType(response.data)
+		}).catch(() => {
+			alert()
 		})
 	}
 
-	useEffect(() => {
+	const loadTopThreeRatingHotels = () => {
 		getTopThreeRatingHotel().then((response) => {
 			if (response.status !== 200) {
 				throw new Error(response.data.message);
@@ -87,10 +47,46 @@ const Home = () => {
 		}).catch((error) => {
 			console.log(error.message)
 		})
+	}
+
+	useEffect(() => {
+		getCountHotelInThreeRandomArea();
+		getNumberHotelByType();
+		loadTopThreeRatingHotels();
+		window.scrollTo(0, 0)
 	}, [])
 
+	const [topThreeRatingHotel, setTopThreeRatingHotel] = useState([])
 
-	const renderSuggestHotel = (hotels) => {
+
+
+	const renderAreaCard = (listData, typeClass) => {
+		return listData.map((data) => {
+			return <Card
+				key={data._id}
+				id={data._id}
+				name={data.name}
+				subText={`${data.numberHotels} properties`}
+				image={data.backgroundImage}
+				typeClass={typeClass}
+			/>
+		})
+	}
+
+	const renderTypeCard = (listData, typeClass) => {
+		return listData.map((data) => {
+			return <Card
+				key={data._id}
+				id={data._id}
+				name={data.name}
+				subText={`${data.numberHotels} ${data.name.toLowerCase()}`}
+				image={data.image}
+				typeClass={typeClass}
+			/>
+		})
+	}
+
+	const renderTopThreeRatingHotel = (hotels) => {
 		return hotels.map((hotel) => {
 			return <CardGuest
 				key={hotel._id}
@@ -110,18 +106,18 @@ const Home = () => {
 			<div id='home'>
 				<div className='container'>
 					<div className='city-card d-flex justify-content-between'>
-						{renderCard(areas, loadNumberHotelInArea, "city-type")}
+						{renderAreaCard(countHotelInThreeArea, "city-type")}
 					</div>
 					<div className='list-hotel'>
 						<h4 className='title'>Browse by property type</h4>
 						<div className='gap-4 d-flex' >
-							{renderCard(types, loadNumberHotelByType, "other-type")}
+							{renderTypeCard(numberHotelsByType, "other-type")}
 						</div>
 					</div>
 					<div>
 						<h4 className='title'>Homes guests love</h4>
 						<div className='gap-4 d-flex'>
-							{renderSuggestHotel(topThreeRatingHotel)}
+							{renderTopThreeRatingHotel(topThreeRatingHotel)}
 						</div>
 					</div>
 				</div>
