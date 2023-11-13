@@ -1,14 +1,11 @@
 import React from 'react';
 import styles from './ReserveInput.module.css'
 import { isShowWarning } from '../../../utils/input';
+import alertMessage from '../../../utils/warningMessage';
 
 
 function ReserveInput({ title, placeholder, isValid, input, isTouch, onTouched, setInput, msg }) {
-    const alertMessage = (msg) => {
-        return <div className="">
-            {msg}
-        </div>
-    }
+
     return (
         <div className='mb-3'>
             <p className='mb-1'>{title} :</p>

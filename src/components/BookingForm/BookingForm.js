@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { getRoomByHotelId } from '../../apis/room';
 import { useDispatch, useSelector } from 'react-redux';
 import { authnAction } from '../../stores/slice/authn';
+import alertMessage from '../../utils/warningMessage';
 
 function BookingForm({ email, fullName, phoneNumber, username, hotelId }) {
     const dispatch = useDispatch();
@@ -146,12 +147,6 @@ function BookingForm({ email, fullName, phoneNumber, username, hotelId }) {
         })
     }
 
-    const alertMessage = (msg) => {
-        return <div className="">
-            {msg}
-        </div>
-    }
-
     return (
         <main className='container'>
             <div className='d-flex'>
@@ -231,14 +226,16 @@ function BookingForm({ email, fullName, phoneNumber, username, hotelId }) {
                             <div className="mt-3">
                                 <h3>Total Bill: ${totalPrice}</h3>
                                 <div className='d-flex align-items-center'>
-                                    <select onBlur={onTouchedPayment} value={inputPayment} onChange={(e) => {
-                                        setInputPayment(e.target.value)
-                                    }} className='h-100'>
-                                        <option>Select Payment Method</option>
-                                        <option>Cash</option>
-                                        <option>Credit Card</option>
-                                    </select>
-                                    {isShowWarning(isValidPayment, isTouchPayment) ? alertMessage("Please enter type!") : <></>}
+                                    <div className='d-flex flex-column'>
+                                        <select onBlur={onTouchedPayment} value={inputPayment} onChange={(e) => {
+                                            setInputPayment(e.target.value)
+                                        }} className='h-100'>
+                                            <option>Select Payment Method</option>
+                                            <option>Cash</option>
+                                            <option>Credit Card</option>
+                                        </select>
+                                        {isShowWarning(isValidPayment, isTouchPayment) ? alertMessage("Please enter type!") : <></>}
+                                    </div>
                                     <button onClick={isValidSubmit ? onSubmitReverse : () => {
                                         onTouchedCardNumber();
                                         onTouchedPayment();

@@ -6,6 +6,7 @@ import { Col, Row } from 'react-bootstrap';
 import useInput from '../../hook/use-input';
 import { isEmptyInput, isShowWarning, validPassword, validatePhoneNumber, validatedEmail } from '../../utils/input';
 import { register } from '../../apis/user';
+import alertMessage from '../../utils/warningMessage';
 
 function Register() {
     const { isAuthn } = useSelector(state => state.authn)
@@ -46,7 +47,6 @@ function Register() {
         isTouch: isTouchEmail,
         onTouched: onTouchedEmail,
         setInput: setInputEmail,
-        resetInput: resetInputEmail
     } = useInput(validatedEmail, '');
     const {
         isValid: isValidPhoneNumber,
@@ -54,14 +54,7 @@ function Register() {
         isTouch: isTouchPhoneNumber,
         onTouched: onTouchedPhoneNumber,
         setInput: setInputPhoneNumber,
-        resetInput: resetInputPhoneNumber
     } = useInput(validatePhoneNumber, '');
-
-    const alertMessage = (msg) => {
-        return <div className="">
-            {msg}
-        </div>
-    }
 
     const isValidSubmit = isValidFullName && isValidUserName && isValidPassword && isValidEmail && isValidPhoneNumber;
 
@@ -151,7 +144,7 @@ function Register() {
                         setInputFullName(e.target.value)
                     }} className='w-100 px-3 py-3 my-2' placeholder="Full Name" />
                     {isShowWarning(isValidFullName, isTouchFullName) ? alertMessage("Please enter full name!") : <></>}
-                    <button className={`${styles['register-action-btn']} py-2 px-2`}>Register</button>
+                    <button className={`${styles['register-action-btn']} mt-3 py-2 px-2`}>Register</button>
                 </form>
             </div>
         </div>

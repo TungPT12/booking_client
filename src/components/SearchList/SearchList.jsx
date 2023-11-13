@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchCard from '../SearchCard/SearchCard';
+import styles from './SearchList.module.css'
 
 function SearchList({ hotels }) {
     const renderSearchData = (hotels) => {
@@ -18,7 +19,7 @@ function SearchList({ hotels }) {
     }
 
     return (
-        <div>
+        <div className={`${styles['search-list']} d-flex flex-column`}>
             {renderSearchData(hotels)}
         </div>
     );

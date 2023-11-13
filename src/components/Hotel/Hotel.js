@@ -26,7 +26,7 @@ function Hotel({ data, setIsBooking }) {
                         </i>
                         {data.address}
                     </p>
-                    <p className="text-primary opacity-75 fw-500 mb-2">Location - {data.distance}</p>
+                    <p className="text-primary opacity-75 fw-500 mb-2">Location - {data.distance} from center</p>
                 </div>
                 <button className="w-auto h-25 book-btn">Reserve or Book Now!</button>
             </div>
