@@ -1,17 +1,17 @@
 # booking_client    
 
-Introduction
+### Introduction
 * Project provide data for FE and process logic.
 * The project can booking hotel, search hotel.
 
 
-# Build Withs
+### Build Withs
 
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
 
-# Getting Started
+### Getting Started
 
 Technology
 * react bootstrap version ^5.3.0 (https://react-bootstrap.netlify.app/docs/getting-started/introduction/).
@@ -32,11 +32,13 @@ Install
 * Clone back end project (https://github.com/TungPT12/booking_server.git).
 * Run project (https://github.com/TungPT12/booking_server/blob/main/README.md).
 * Clone Front End project for client (https://github.com/TungPT12/booking_client.git).
+* Go to configs/customer.js comment line 5 and uncomment line 4.
+* Go to configs/axios.js comment line 5 and uncomment line 4.
 * Open terminal in root folder project and type 'npm i'.
 * Run project with command 'npm start'.
 
 
-Contact me:
+### Contact me:
 
 * Phone number: 0988486443.
 * Email: boypham12042000@gmail.com.
