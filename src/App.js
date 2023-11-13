@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import './index.css'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Home from "./pages/Home/Home";
 import Detail from "./pages/Detail/Detail";
 import Search from "./pages/Search/Search";
@@ -43,15 +43,15 @@ const clientRouters = [
     </>
 
   },
-  {
-    name: "Transaction",
-    path: '/transaction',
-    element: <>
-      <Navbar />
-      <Transaction />
-    </>
+  // {
+  //   name: "Transaction",
+  //   path: '/transaction',
+  //   element: <>
+  //     <Navbar />
+  //     <Transaction />
+  //   </>
 
-  },
+  // },
   // {
   //   name: "MatchAll",
   //   path: '*',
@@ -61,7 +61,7 @@ const clientRouters = [
 ]
 
 function App() {
-  // const { isAuthn, isAdmin, username, email, avatar } = useSelector(state => state.authn);
+  const { isAuthn } = useSelector(state => state.authn);
   const dispatch = useDispatch();
   const renderRouter = (listRouter) => {
     return listRouter.map((router) => {
@@ -93,6 +93,10 @@ function App() {
       <Routes>
         {renderRouter(clientRouters)}
         <Route path='/login' element={<Login />} />
+        <Route path='/transaction' element={isAuthn ? <>
+          <Navbar />
+          <Transaction />
+        </> : <Login />} />
         <Route path='/register' element={<Register />} />
       </Routes>
     </BrowserRouter>

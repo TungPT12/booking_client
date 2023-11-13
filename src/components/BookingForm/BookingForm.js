@@ -3,7 +3,7 @@ import styles from './BookingForm.module.css';
 import DateRangePicker from '../DateRangePicker/DateRangePicker';
 import ReserveInput from '../ReserveInfo/ReserveInput/ReserveInput';
 import useInput from '../../hook/use-input';
-import { isEmptyInput, isEmptySelect, isShowWarning, validatePhoneNumber, validatedEmail } from '../../utils/input';
+import { isEmptyInput, isEmptySelect, isShowWarning, validatePhoneNumber, validateVisa, validatedEmail } from '../../utils/input';
 import Room from '../Room/Room';
 import { createTransactionApi } from '../../apis/transaction';
 import { useNavigate } from 'react-router-dom';
@@ -52,7 +52,7 @@ function BookingForm({ email, fullName, phoneNumber, username, hotelId }) {
         isTouch: isTouchCardNumber,
         onTouched: onTouchedCardNumber,
         setInput: setInputCardNumber,
-    } = useInput(validatePhoneNumber, '');
+    } = useInput(validateVisa, '');
 
     const {
         isValid: isValidPayment,
@@ -209,7 +209,7 @@ function BookingForm({ email, fullName, phoneNumber, username, hotelId }) {
                             isTouch={isTouchCardNumber}
                             onTouched={onTouchedCardNumber}
                             setInput={setInputCardNumber}
-                            msg="Please enter your card number!"
+                            msg="Card number is invalid!"
                         />
 
                     </div>

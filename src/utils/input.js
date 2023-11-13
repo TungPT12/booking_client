@@ -78,6 +78,38 @@ const validatePhoneNumber = (phone) => {
     return false;
 }
 
+const validateVisa = (cardNumber) => {
+    const pattern = /^\d{16}$/
+    const isCardNumber = pattern.test(cardNumber)
+    if (isCardNumber) {
+        const numbers = cardNumber.split('').map((number, index) => {
+            if (index % 2 === 0) {
+                number = parseInt(number)
+                if ((number * 2) > 9) {
+                    const numberThan9s = ((number * 2).toString()).split('').map((numberThan9) => {
+                        return parseInt(numberThan9);
+                    });
+                    return numberThan9s.reduce((sum, numberThan9) => {
+                        return sum + numberThan9
+                    }, 0)
+                }
+                return number * 2;
+            }
+            return parseInt(number);
+        })
+        console.log(numbers)
+        const sumNumberCard = numbers.reduce((sum, number) => {
+            console.log(sum + " + " + number)
+            return sum + number;
+        }, 0)
+        console.log(sumNumberCard)
+        if (sumNumberCard % 10 === 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
 
 export {
     isEmptyInput,
@@ -88,5 +120,6 @@ export {
     isValidInputRooms,
     validatedEmail,
     validatePhoneNumber,
-    validPassword
+    validPassword,
+    validateVisa
 }

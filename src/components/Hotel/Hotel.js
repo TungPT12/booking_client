@@ -11,7 +11,7 @@ function Hotel({ data, setIsBooking }) {
 
     const renderDetailDataImg = (imgs) => {
         return imgs.map((img) => {
-            return <img key={img} src={img} className='w-100' alt="Hotel" />
+            return <img key={img} src={img} className='w-100 h-100' alt="Hotel" />
         })
     }
 
