@@ -53,7 +53,7 @@ const isValidInputRooms = (input) => {
 }
 
 const validatedEmail = (input) => {
-    let pattern = /^[a-zA-z0-9]+@([a-z]+.)+[\w-]{2,4}$/;
+    let pattern = /^[a-zA-z0-9]+@([a-z]+\.)+[\w-]{2,4}$/;
     if (input.trim()) {
         let result = pattern.test(input);
         return result;
