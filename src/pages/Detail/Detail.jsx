@@ -36,6 +36,7 @@ const Detail = () => {
         rating: hotel.rating
       });
       setRoomsData(rooms)
+      setIsLoadingHotel(false)
     } catch (error) {
       console.log(error.message)
     }
@@ -45,7 +46,6 @@ const Detail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     loadHotelData(id);
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
