@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import Hotel from '../../components/Hotel/Hotel';
 import { useSelector } from 'react-redux';
 import { getHotelByIdApi } from '../../apis/hotel';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
 const Detail = () => {
   const { id } = useParams();
@@ -15,6 +16,7 @@ const Detail = () => {
   const { email, fullName, phoneNumber, username } = useSelector(state => state.authn)
   const [hotelData, setHotelData] = useState(null);
   const [roomsData, setRoomsData] = useState(null);
+  const [isLoadingHotel, setIsLoadingHotel] = useState(true);
   const loadHotelData = async (id) => {
     try {
       const response = await getHotelByIdApi(token, id);
@@ -50,12 +52,14 @@ const Detail = () => {
   return (
     <div>
       <div id="detail" className='mt-3'>
-        <div className='container'>
-          {hotelData ? <Hotel
-            data={hotelData}
-            setIsBooking={setIsBooking}
-          /> : <></>}
-        </div>
+        {
+          isLoadingHotel ? <LoadingSpinner /> : <div className='container'>
+            {hotelData ? <Hotel
+              data={hotelData}
+              setIsBooking={setIsBooking}
+            /> : <></>}
+          </div>
+        }
         {isBooking ?
           <BookingForm
             hotelId={id}
