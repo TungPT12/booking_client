@@ -5,12 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import { getTransactionsApi } from '../../apis/transaction';
 import { format } from 'date-fns'
 import TagTransaction from '../../components/TagTransaction/TagTransaction';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
 function Transaction() {
     const navigate = useNavigate();
     const { token } = useSelector(state => state.authn)
     const { isAuthn } = useSelector(state => state.authn);
     const [transactions, setTransactions] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         if (!isAuthn) {
             navigate('/login');
@@ -36,8 +38,8 @@ function Transaction() {
                 throw new Error(response.data.message);
             }
             setTransactions(response.data)
+            setIsLoading(false);
         }).catch((error) => {
-            console.log(error);
             alert(error.message);
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -82,18 +84,20 @@ function Transaction() {
     }
     return (
         <div className={`${styles['transaction']} container`}>
-            <table className='w-100'>
-                <tr className='d-flex w-100'>
-                    <th className='f-1 d-flex justify-content-center'>#</th>
-                    <th className='f-6'>Hotel</th>
-                    <th className='f-2'>Room</th>
-                    <th className='f-5'>Date</th>
-                    <th className='f-2'>Price</th>
-                    <th className='f-3'>Payment Method</th>
-                    <th className='f-2'>Status</th>
-                </tr>
-                {renderTransactions()}
-            </table>
+            {
+                isLoading ? <LoadingSpinner /> : <table className='w-100'>
+                    <tr className='d-flex w-100'>
+                        <th className='f-1 d-flex justify-content-center'>#</th>
+                        <th className='f-6'>Hotel</th>
+                        <th className='f-2'>Room</th>
+                        <th className='f-5'>Date</th>
+                        <th className='f-2'>Price</th>
+                        <th className='f-3'>Payment Method</th>
+                        <th className='f-2'>Status</th>
+                    </tr>
+                    {renderTransactions()}
+                </table>
+            }
         </div>
     );
 }
