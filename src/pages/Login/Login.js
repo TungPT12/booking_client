@@ -24,9 +24,8 @@ function Login() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isAuthn])
 
-    const onSubmitLogin = async (e) => {
+    const onSubmitLogin = async () => {
         try {
-            e.preventDefault();
             const response = await login(username, password);
             if (response.status === 401) {
                 setWrongUser(true);
@@ -63,7 +62,8 @@ function Login() {
                     <div className={`h-100 w-100 d-flex justify-content-center align-items-center flex-column`}>
                         <h1 className='text-center'>Login</h1>
                         {wrongUser ? <p>Wrong username or password</p> : <></>}
-                        <form onSubmit={() => {
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
                             setIsLoadingModal(true);
                             onSubmitLogin();
                         }} className={`${styles['login-form']} d-flex flex-column`}>
