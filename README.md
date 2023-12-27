@@ -38,8 +38,6 @@ Before you continue, ensure you meet the following requirements:
 * Clone back end project (https://github.com/TungPT12/booking_server.git).
 * Run project (https://github.com/TungPT12/booking_server/blob/main/README.md).
 * Clone Front End project for client (https://github.com/TungPT12/booking_client.git).
-* Go to configs/customer.js comment line 5 and uncomment line 4.
-* Go to configs/axios.js comment line 5 and uncomment line 4.
 * Open terminal in root folder project and type 'npm i'.
 * Run project with command 'npm start'.
 
