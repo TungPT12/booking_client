@@ -42,3 +42,7 @@
     border: 1px solid #0006;
     border-radius: 4px;
 }
+
+.wrong {
+    border-radius: 4px;
+}
