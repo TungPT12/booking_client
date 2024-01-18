@@ -1,4 +1,3 @@
-import axios from 'axios';
 import axiosInstance from '../configs/axios/axios';
 
 const uploadImageApi = async (formData) => {
