@@ -39,7 +39,6 @@ function Register() {
         isTouch: isTouchPassword,
         onTouched: onTouchedPassword,
         setInput: setInputPassword,
-        resetInput: resetInputPassword
     } = useInput(validPassword, '');
     const {
         isValid: isValidEmail,

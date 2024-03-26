@@ -38,6 +38,7 @@ const Search = () => {
 
   useEffect(() => {
     onHandleSearch()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
